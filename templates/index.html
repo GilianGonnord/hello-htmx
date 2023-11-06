@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>{{.Title}}</title>
+	<link rel="stylesheet" href="/static/styles/output.css">
+	<script src="https://unpkg.com/htmx.org@1.9.6"></script>
+</head>
+
+<body>
+	<button hx-post="/clicked" hx-target='#counter' hx-swap="outerHTML">Click me</button>
+	</br>
+	<form hx-post="/add-to-counter" hx-target='#counter' hx-swap="outerHTML">
+		<input name="number" type="number" required min=0 />
+		<!-- <button hx-post="/add-to-counter" hx-target='#counter' hx-swap="outerHTML" hx-include="[name='number']">Add to counter</button>-->
+		<button>Add to counter</button>
+	</form>
+	{{template "counter" .}}
+</body>
+
+</html>
